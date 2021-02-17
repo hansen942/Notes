@@ -1340,11 +1340,11 @@
     For sake of simplicity, if there is no edge between $u$ and $v$, we say $w_{uv} = 0$.
    Then for $x \in V$, define $w_x = \sum_{x \in e}w_e$.
    The weights induce a random walk on $\Gamma$ by taking the probability of a transition $x \leadsto y$ to be $w_{xy}/w_x$.
-   Then clearly $\pi = (w_x)_x$ is a stationary distribution of the random walk on $\Gamma$.
+   Then clearly $\pi = (w_x)$ is a stationary distribution of the random walk on $\Gamma$.
 
    For $u$ in the vertex set of such a graph, we define $d(u) = w_x$ to be its weighted degree.
    Then for $S \subseteq V$, we define $d(S) = \sum_{u \in S}{d(u)}$.
-   For a set of edges $B$ we define $d(B) = \sum_{e \in B}w_e$.
+   For a set of edges $B$ we define $w(B) = \sum_{e \in B}w_e$.
    We also define the ``edge boundary'' $\partial S = \{~(u,v) \in E~:~\text{exactly one of $u,v$ belongs to $S$}\}$.
    Intuitively, a graph is a good expander if the edge boundaries most sets are reasonably large.
 
@@ -1418,7 +1418,7 @@
      Set $s = d(S)/d(V)$ and let $y = y' - s \mathbf 1$.
      Then
      $$
-     y^\intercal L y = y'^\intercal L y' = \sum_{uv \in E}(y'(u) - y'(v))^2 = |\partial S|
+     y^\intercal L y = y'^\intercal L y' = \sum_{uv \in E}d(u)(y'(u) - y'(v))^2 = w(\partial S)
      $$
      Next we compute
      \begin{equation}
@@ -1433,7 +1433,7 @@
      $$
      Then plugging $y$ into our earlier formula, we find that
      $$
-     \nu_2 \leq \frac{y^\intercal L y}{y^\intercal D y} = \frac{|\partial S|}{(1-s)d(S)} = \frac{d(V)|\partial S|}{d(\overline S)d(S)} \leq \sigma \leq 2\phi
+     \nu_2 \leq \frac{y^\intercal L y}{y^\intercal D y} = \frac{w(\partial S)}{(1-s)d(S)} = \frac{d(V)w(\partial S)}{d(\overline S)d(S)} \leq \sigma \leq 2\phi
      $$
      Now we prove the other direction.
 
